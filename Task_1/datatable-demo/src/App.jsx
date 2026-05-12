@@ -4,8 +4,8 @@ import './App.css';
 
 // --- MOCK DATA SET 1: STUDENTS ---
 const MOCK_STUDENTS = [
-  { id: 101, name: "Aarav Sharma", rollNo: "STU-01", grade: "A+", attendance: 95, status: "Active" },
-  { id: 102, name: "Shivani Patel", rollNo: "STU-02", grade: "A", attendance: 98, status: "Active" },
+  { id: 101, name: "Shivani Kosambiya", rollNo: "STU-01", grade: "A+", attendance: 100, status: "Active" },
+  { id: 102, name: "Aarav Sharma", rollNo: "STU-02", grade: "A", attendance: 95, status: "Active" },
   { id: 103, name: "Kabir Mehta", rollNo: "STU-03", grade: "B+", attendance: 84, status: "Active" },
   { id: 104, name: "Riya Sen", rollNo: "STU-04", grade: "A+", attendance: 92, status: "Active" },
   { id: 105, name: "Dev Shah", rollNo: "STU-05", grade: "C", attendance: 65, status: "Suspended" },
