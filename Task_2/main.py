@@ -116,11 +116,11 @@ def custom_swagger_ui_html():
             background-color: transparent !important;
             color: #94a3b8 !important;
         }
-        .swagger-ui .model-title,
-        .swagger-ui .model-box-control,
-        .swagger-ui .model-box-control span,
-        .swagger-ui .model-box-control .model-title {
-            color: #f1f5f9 !important; /* Force bright slate-white font color for maximum readability */
+        .swagger-ui section.models .model-box-control,
+        .swagger-ui section.models .model-box-control *,
+        .swagger-ui section.models .model-title,
+        .swagger-ui section.models .model-title * {
+            color: #f1f5f9 !important; /* Force extremely bright white font color for maximum contrast */
             font-size: 15px !important;
             font-weight: 600 !important;
             letter-spacing: 0.5px !important;
@@ -136,9 +136,9 @@ def custom_swagger_ui_html():
             padding: 0 !important;
             cursor: pointer !important;
         }
-        .swagger-ui .model-box-control:hover .model-title,
-        .swagger-ui .model-box-control:hover span,
-        .swagger-ui .model-box-control:hover {
+        /* Glowing cyan hover effect for all nested elements on hover */
+        .swagger-ui section.models .model-box-control:hover,
+        .swagger-ui section.models .model-box-control:hover * {
             color: #38bdf8 !important; /* Glowing cyan on hover */
         }
         .swagger-ui .model-hint {
