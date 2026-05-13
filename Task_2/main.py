@@ -8,11 +8,168 @@ from database import engine, get_db
 # Automatically create database tables on application startup (SQLite/PostgreSQL)
 models.Base.metadata.create_all(bind=engine)
 
+from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.responses import HTMLResponse
+
 app = FastAPI(
     title="Tasks Management REST API",
     description="A highly optimized, robust, and secure backend REST API for managing tasks, built using FastAPI, SQLAlchemy, and PostgreSQL/SQLite.",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url=None  # Disable default Swagger UI to use our custom themed version below
 )
+
+@app.get("/docs", include_in_schema=False)
+def custom_swagger_ui_html():
+    swagger_html = get_swagger_ui_html(
+        openapi_url=app.openapi_url,
+        title=app.title + " - Premium Dark UI",
+        swagger_js_url="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js",
+        swagger_css_url="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css",
+    )
+    
+    # Modern Premium Dark Purple Theme for Swagger UI (matching Task 1)
+    custom_css = """
+    <style>
+        body {
+            background-color: #0b071e !important;
+            color: #e2e8f0 !important;
+            font-family: 'Outfit', 'Inter', sans-serif !important;
+        }
+        .swagger-ui {
+            background-color: #0b071e !important;
+            filter: invert(0) !important;
+        }
+        .swagger-ui .info .title {
+            color: #c084fc !important;
+            text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+        }
+        .swagger-ui .info, .swagger-ui .info p, .swagger-ui .info a, .swagger-ui .info li {
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .scheme-container {
+            background-color: #130f2e !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4) !important;
+            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            border-radius: 12px !important;
+        }
+        .swagger-ui .opblock {
+            background-color: #130f2e !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+        .swagger-ui .opblock:hover {
+            transform: translateY(-2px) !important;
+            border-color: rgba(192, 132, 252, 0.4) !important;
+            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.15) !important;
+        }
+        .swagger-ui .opblock .opblock-summary-path {
+            color: #e2e8f0 !important;
+        }
+        .swagger-ui .opblock .opblock-summary-description {
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .opblock-tag {
+            color: #c084fc !important;
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2) !important;
+        }
+        .swagger-ui .opblock-tag:hover {
+            background-color: rgba(192, 132, 252, 0.05) !important;
+        }
+        .swagger-ui section.models {
+            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            border-radius: 12px !important;
+            background-color: #130f2e !important;
+        }
+        .swagger-ui section.models h4 {
+            color: #c084fc !important;
+        }
+        .swagger-ui section.models .model-container {
+            background-color: #0b071e !important;
+            border-radius: 8px !important;
+            margin: 10px !important;
+        }
+        .swagger-ui .model-box {
+            background-color: #0b071e !important;
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .model-title {
+            color: #e2e8f0 !important;
+        }
+        .swagger-ui select, .swagger-ui input[type=text] {
+            background-color: #0b071e !important;
+            color: #e2e8f0 !important;
+            border: 1px solid rgba(192, 132, 252, 0.2) !important;
+            border-radius: 6px !important;
+        }
+        .swagger-ui .btn {
+            background-color: #c084fc !important;
+            color: #0b071e !important;
+            border: none !important;
+            font-weight: bold !important;
+            border-radius: 8px !important;
+            transition: all 0.2s ease !important;
+        }
+        .swagger-ui .btn:hover {
+            background-color: #a855f7 !important;
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.4) !important;
+        }
+        .swagger-ui .opblock.opblock-post {
+            border-left: 5px solid #10b981 !important;
+            background-color: rgba(16, 185, 129, 0.05) !important;
+        }
+        .swagger-ui .opblock.opblock-get {
+            border-left: 5px solid #3b82f6 !important;
+            background-color: rgba(59, 130, 246, 0.05) !important;
+        }
+        .swagger-ui .opblock.opblock-patch {
+            border-left: 5px solid #eab308 !important;
+            background-color: rgba(234, 179, 8, 0.05) !important;
+        }
+        .swagger-ui .opblock.opblock-delete {
+            border-left: 5px solid #ef4444 !important;
+            background-color: rgba(239, 68, 68, 0.05) !important;
+        }
+        .swagger-ui .opblock.opblock-post .opblock-summary-method { background-color: #10b981 !important; }
+        .swagger-ui .opblock.opblock-get .opblock-summary-method { background-color: #3b82f6 !important; }
+        .swagger-ui .opblock.opblock-patch .opblock-summary-method { background-color: #eab308 !important; }
+        .swagger-ui .opblock.opblock-delete .opblock-summary-method { background-color: #ef4444 !important; }
+        
+        .swagger-ui table thead tr td, .swagger-ui table thead tr th {
+            color: #c084fc !important;
+            border-bottom: 2px solid rgba(192, 132, 252, 0.2) !important;
+        }
+        .swagger-ui .parameters-col_name {
+            color: #e2e8f0 !important;
+        }
+        .swagger-ui .responses-table {
+            background-color: #0b071e !important;
+        }
+        .swagger-ui .response-col_status {
+            color: #c084fc !important;
+        }
+        .swagger-ui .tabli {
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .tabli.active a {
+            color: #c084fc !important;
+        }
+        .swagger-ui .responses-wrapper {
+            background-color: #130f2e !important;
+        }
+        .swagger-ui .response-col_links {
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .model-box-control:focus {
+            outline: none !important;
+        }
+    </style>
+    """
+    
+    html_content = swagger_html.body.decode("utf-8")
+    injected_html = html_content.replace("</head>", f"{custom_css}</head>")
+    return HTMLResponse(content=injected_html, status_code=200)
 
 # API ROOT welcome route
 @app.get("/", tags=["Root"])
@@ -22,6 +179,7 @@ def root_welcome():
         "message": "Welcome to the Tasks Management REST API! Explore documentation at /docs",
         "documentation": "/docs"
     }
+
 
 # 1. POST /tasks: Create a new task (Status: 201 Created)
 @app.post("/tasks", response_model=schemas.TaskResponse, status_code=status.HTTP_201_CREATED, tags=["Tasks"])
