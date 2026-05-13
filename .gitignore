@@ -50,3 +50,8 @@ coverage.xml
 # Private Preparation Guides
 PREPARATION_GUIDE.md
 
+# Vite local cache
+.vite/
+*.db
+
+
