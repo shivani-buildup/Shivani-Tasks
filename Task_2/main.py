@@ -78,24 +78,72 @@ def custom_swagger_ui_html():
             background-color: rgba(56, 189, 248, 0.05) !important;
         }
         .swagger-ui section.models {
-            border: 1px solid rgba(148, 163, 184, 0.1) !important;
-            border-radius: 12px !important;
-            background-color: #1e293b !important;
+            border: 1px solid rgba(56, 189, 248, 0.15) !important;
+            border-radius: 16px !important;
+            background: rgba(30, 41, 59, 0.7) !important;
+            backdrop-filter: blur(12px) !important;
+            box-shadow: 0 10px 45px rgba(0, 0, 0, 0.4) !important;
+            padding: 10px 15px !important;
         }
         .swagger-ui section.models h4 {
             color: #38bdf8 !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.8px !important;
+            text-transform: uppercase !important;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1) !important;
+            padding-bottom: 10px !important;
+            margin-bottom: 15px !important;
+        }
+        .swagger-ui section.models h4 svg {
+            fill: #38bdf8 !important;
         }
         .swagger-ui section.models .model-container {
             background-color: #0f172a !important;
-            border-radius: 8px !important;
-            margin: 10px !important;
+            border: 1px solid rgba(148, 163, 184, 0.08) !important;
+            border-radius: 12px !important;
+            margin: 12px 0 !important;
+            padding: 8px 12px !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .swagger-ui section.models .model-container:hover {
+            transform: translateY(-2px) !important;
+            border-color: rgba(56, 189, 248, 0.35) !important;
+            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.12) !important;
+            background-color: #111b30 !important;
         }
         .swagger-ui .model-box {
-            background-color: #0f172a !important;
+            background-color: transparent !important;
             color: #94a3b8 !important;
         }
         .swagger-ui .model-title {
             color: #f1f5f9 !important;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+        }
+        .swagger-ui .model-box-control {
+            outline: none !important;
+        }
+        .swagger-ui .model-box-control:hover .model-title {
+            color: #38bdf8 !important;
+        }
+        .swagger-ui .model-toggle {
+            fill: #38bdf8 !important;
+        }
+        .swagger-ui .prop-name {
+            color: #38bdf8 !important;
+            font-weight: 600 !important;
+        }
+        .swagger-ui .prop-type {
+            color: #94a3b8 !important;
+        }
+        .swagger-ui .model .property {
+            border-bottom: 1px solid rgba(148, 163, 184, 0.05) !important;
+            padding: 8px 0 !important;
+        }
+        .swagger-ui .model-box .model-jump-to-path {
+            color: #38bdf8 !important;
         }
         .swagger-ui select, .swagger-ui input[type=text] {
             background-color: #0f172a !important;
