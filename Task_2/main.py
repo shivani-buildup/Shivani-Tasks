@@ -142,9 +142,9 @@ def custom_swagger_ui_html():
             color: #38bdf8 !important; /* Glowing cyan on hover */
         }
         .swagger-ui .model-hint {
-            color: #64748b !important; /* Make "object" / "string" hints a readable slate grey */
+            color: #ffffff !important; /* Pure white font color for hints (object, array, string) */
             font-size: 12px !important;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
             margin-left: 10px !important;
         }
         
@@ -182,35 +182,32 @@ def custom_swagger_ui_html():
             margin-left: 8px !important;
             padding: 0 !important;
         }
-        .swagger-ui .prop-name {
-            color: #38bdf8 !important; /* Keys in bright sky-blue for clear contrast */
+        /* CRITICAL: Aggressive pure white override for ALL elements, types, hints and symbols inside schemas */
+        .swagger-ui section.models .model,
+        .swagger-ui section.models .model *,
+        .swagger-ui section.models .prop-type,
+        .swagger-ui section.models .prop-format,
+        .swagger-ui section.models .model-hint,
+        .swagger-ui section.models .model-hint *,
+        .swagger-ui section.models .brace-open,
+        .swagger-ui section.models .brace-close,
+        .swagger-ui section.models .bracket-open,
+        .swagger-ui section.models .bracket-close,
+        .swagger-ui section.models .comma,
+        .swagger-ui section.models .colon {
+            color: #ffffff !important; /* Force PURE WHITE for maximum contrast against deep slate background */
             font-weight: 600 !important;
         }
-        .swagger-ui .prop-type {
-            color: #f1f5f9 !important; /* Force primitive types to bright readable white/slate */
-            font-weight: 500 !important;
-        }
-        .swagger-ui .prop-format {
-            color: #94a3b8 !important; /* Format text in clear slate-grey */
-        }
-        .swagger-ui .model {
-            color: #94a3b8 !important; /* Base model text color */
-            font-weight: 500 !important;
+        
+        /* Keep only the schema property keys as vibrant sky-blue for clear key-value separation */
+        .swagger-ui section.models .prop-name,
+        .swagger-ui section.models .prop-name * {
+            color: #38bdf8 !important; /* Keep property keys sky-blue */
+            font-weight: 600 !important;
         }
         .swagger-ui .model .property {
             border-bottom: 1px solid rgba(148, 163, 184, 0.05) !important;
             padding: 8px 0 !important;
-            color: #e2e8f0 !important;
-        }
-        /* Style punctuations, brackets, braces, and punctuation marks inside model tree previews */
-        .swagger-ui .model .brace-open,
-        .swagger-ui .model .brace-close,
-        .swagger-ui .model .bracket-open,
-        .swagger-ui .model .bracket-close,
-        .swagger-ui .model .comma,
-        .swagger-ui .model .colon {
-            color: #f1f5f9 !important; /* Punctuation and braces in bright white */
-            font-weight: bold !important;
         }
         .swagger-ui .model-box .model-jump-to-path {
             color: #38bdf8 !important;
