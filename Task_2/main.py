@@ -183,15 +183,34 @@ def custom_swagger_ui_html():
             padding: 0 !important;
         }
         .swagger-ui .prop-name {
-            color: #38bdf8 !important;
+            color: #38bdf8 !important; /* Keys in bright sky-blue for clear contrast */
             font-weight: 600 !important;
         }
         .swagger-ui .prop-type {
-            color: #94a3b8 !important;
+            color: #f1f5f9 !important; /* Force primitive types to bright readable white/slate */
+            font-weight: 500 !important;
+        }
+        .swagger-ui .prop-format {
+            color: #94a3b8 !important; /* Format text in clear slate-grey */
+        }
+        .swagger-ui .model {
+            color: #94a3b8 !important; /* Base model text color */
+            font-weight: 500 !important;
         }
         .swagger-ui .model .property {
             border-bottom: 1px solid rgba(148, 163, 184, 0.05) !important;
             padding: 8px 0 !important;
+            color: #e2e8f0 !important;
+        }
+        /* Style punctuations, brackets, braces, and punctuation marks inside model tree previews */
+        .swagger-ui .model .brace-open,
+        .swagger-ui .model .brace-close,
+        .swagger-ui .model .bracket-open,
+        .swagger-ui .model .bracket-close,
+        .swagger-ui .model .comma,
+        .swagger-ui .model .colon {
+            color: #f1f5f9 !important; /* Punctuation and braces in bright white */
+            font-weight: bold !important;
         }
         .swagger-ui .model-box .model-jump-to-path {
             color: #38bdf8 !important;
