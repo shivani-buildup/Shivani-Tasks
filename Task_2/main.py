@@ -116,11 +116,15 @@ def custom_swagger_ui_html():
             background-color: transparent !important;
             color: #94a3b8 !important;
         }
-        .swagger-ui .model-title {
-            color: #f1f5f9 !important;
+        .swagger-ui .model-title,
+        .swagger-ui .model-box-control,
+        .swagger-ui .model-box-control span,
+        .swagger-ui .model-box-control .model-title {
+            color: #f1f5f9 !important; /* Force bright slate-white font color for maximum readability */
             font-size: 15px !important;
             font-weight: 600 !important;
             letter-spacing: 0.5px !important;
+            text-decoration: none !important;
         }
         .swagger-ui .model-box-control {
             outline: none !important;
@@ -132,8 +136,16 @@ def custom_swagger_ui_html():
             padding: 0 !important;
             cursor: pointer !important;
         }
-        .swagger-ui .model-box-control:hover .model-title {
-            color: #38bdf8 !important;
+        .swagger-ui .model-box-control:hover .model-title,
+        .swagger-ui .model-box-control:hover span,
+        .swagger-ui .model-box-control:hover {
+            color: #38bdf8 !important; /* Glowing cyan on hover */
+        }
+        .swagger-ui .model-hint {
+            color: #64748b !important; /* Make "object" / "string" hints a readable slate grey */
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            margin-left: 10px !important;
         }
         
         /* Style the expand/collapse button and custom buttons to eliminate white backgrounds */
