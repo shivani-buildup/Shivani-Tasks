@@ -27,93 +27,93 @@ def custom_swagger_ui_html():
         swagger_css_url="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css",
     )
     
-    # Modern Premium Dark Purple Theme for Swagger UI (matching Task 1)
+    # Modern Premium Dark Blue Slate Theme for Swagger UI (matching Task 1's colors exactly)
     custom_css = """
     <style>
         body {
-            background-color: #0b071e !important;
-            color: #e2e8f0 !important;
+            background-color: #0f172a !important; /* slate-900 */
+            color: #f1f5f9 !important; /* slate-100 */
             font-family: 'Outfit', 'Inter', sans-serif !important;
         }
         .swagger-ui {
-            background-color: #0b071e !important;
+            background-color: #0f172a !important;
             filter: invert(0) !important;
         }
         .swagger-ui .info .title {
-            color: #c084fc !important;
-            text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+            color: #38bdf8 !important; /* Sky blue / Cyan */
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
         }
         .swagger-ui .info, .swagger-ui .info p, .swagger-ui .info a, .swagger-ui .info li {
-            color: #94a3b8 !important;
+            color: #94a3b8 !important; /* slate-400 */
         }
         .swagger-ui .scheme-container {
-            background-color: #130f2e !important;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4) !important;
-            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            background-color: #1e293b !important; /* slate-800 card */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid rgba(148, 163, 184, 0.1) !important;
             border-radius: 12px !important;
         }
         .swagger-ui .opblock {
-            background-color: #130f2e !important;
+            background-color: #1e293b !important; /* slate-800 card */
             border-radius: 12px !important;
-            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            border: 1px solid rgba(148, 163, 184, 0.1) !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
             transition: all 0.3s ease !important;
         }
         .swagger-ui .opblock:hover {
             transform: translateY(-2px) !important;
-            border-color: rgba(192, 132, 252, 0.4) !important;
-            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.15) !important;
+            border-color: rgba(56, 189, 248, 0.4) !important;
+            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15) !important;
         }
         .swagger-ui .opblock .opblock-summary-path {
-            color: #e2e8f0 !important;
+            color: #f1f5f9 !important;
         }
         .swagger-ui .opblock .opblock-summary-description {
             color: #94a3b8 !important;
         }
         .swagger-ui .opblock-tag {
-            color: #c084fc !important;
-            border-bottom: 1px solid rgba(192, 132, 252, 0.2) !important;
+            color: #38bdf8 !important;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
         }
         .swagger-ui .opblock-tag:hover {
-            background-color: rgba(192, 132, 252, 0.05) !important;
+            background-color: rgba(56, 189, 248, 0.05) !important;
         }
         .swagger-ui section.models {
-            border: 1px solid rgba(192, 132, 252, 0.1) !important;
+            border: 1px solid rgba(148, 163, 184, 0.1) !important;
             border-radius: 12px !important;
-            background-color: #130f2e !important;
+            background-color: #1e293b !important;
         }
         .swagger-ui section.models h4 {
-            color: #c084fc !important;
+            color: #38bdf8 !important;
         }
         .swagger-ui section.models .model-container {
-            background-color: #0b071e !important;
+            background-color: #0f172a !important;
             border-radius: 8px !important;
             margin: 10px !important;
         }
         .swagger-ui .model-box {
-            background-color: #0b071e !important;
+            background-color: #0f172a !important;
             color: #94a3b8 !important;
         }
         .swagger-ui .model-title {
-            color: #e2e8f0 !important;
+            color: #f1f5f9 !important;
         }
         .swagger-ui select, .swagger-ui input[type=text] {
-            background-color: #0b071e !important;
-            color: #e2e8f0 !important;
-            border: 1px solid rgba(192, 132, 252, 0.2) !important;
+            background-color: #0f172a !important;
+            color: #f1f5f9 !important;
+            border: 1px solid rgba(56, 189, 248, 0.2) !important;
             border-radius: 6px !important;
         }
         .swagger-ui .btn {
-            background-color: #c084fc !important;
-            color: #0b071e !important;
+            background-color: #3b82f6 !important; /* primary blue matching React buttons */
+            color: #ffffff !important;
             border: none !important;
             font-weight: bold !important;
             border-radius: 8px !important;
             transition: all 0.2s ease !important;
         }
         .swagger-ui .btn:hover {
-            background-color: #a855f7 !important;
-            box-shadow: 0 0 15px rgba(192, 132, 252, 0.4) !important;
+            background-color: #2563eb !important;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4) !important;
         }
         .swagger-ui .opblock.opblock-post {
             border-left: 5px solid #10b981 !important;
@@ -137,26 +137,26 @@ def custom_swagger_ui_html():
         .swagger-ui .opblock.opblock-delete .opblock-summary-method { background-color: #ef4444 !important; }
         
         .swagger-ui table thead tr td, .swagger-ui table thead tr th {
-            color: #c084fc !important;
-            border-bottom: 2px solid rgba(192, 132, 252, 0.2) !important;
+            color: #38bdf8 !important;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.2) !important;
         }
         .swagger-ui .parameters-col_name {
-            color: #e2e8f0 !important;
+            color: #f1f5f9 !important;
         }
         .swagger-ui .responses-table {
-            background-color: #0b071e !important;
+            background-color: #0f172a !important;
         }
         .swagger-ui .response-col_status {
-            color: #c084fc !important;
+            color: #38bdf8 !important;
         }
         .swagger-ui .tabli {
             color: #94a3b8 !important;
         }
         .swagger-ui .tabli.active a {
-            color: #c084fc !important;
+            color: #38bdf8 !important;
         }
         .swagger-ui .responses-wrapper {
-            background-color: #130f2e !important;
+            background-color: #1e293b !important;
         }
         .swagger-ui .response-col_links {
             color: #94a3b8 !important;
