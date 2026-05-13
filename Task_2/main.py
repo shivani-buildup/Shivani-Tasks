@@ -124,12 +124,51 @@ def custom_swagger_ui_html():
         }
         .swagger-ui .model-box-control {
             outline: none !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            padding: 0 !important;
+            cursor: pointer !important;
         }
         .swagger-ui .model-box-control:hover .model-title {
             color: #38bdf8 !important;
         }
+        
+        /* Style the expand/collapse button and custom buttons to eliminate white backgrounds */
+        .swagger-ui section.models button,
+        .swagger-ui section.models .model-toggle,
+        .swagger-ui .model-box-control button {
+            background: rgba(56, 189, 248, 0.08) !important;
+            color: #38bdf8 !important;
+            border: 1px solid rgba(56, 189, 248, 0.2) !important;
+            border-radius: 6px !important;
+            padding: 4px 10px !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            margin-left: 12px !important; /* Proper spacing so they don't look joined */
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: none !important;
+            cursor: pointer !important;
+            outline: none !important;
+        }
+        
+        .swagger-ui section.models button:hover,
+        .swagger-ui section.models .model-toggle:hover,
+        .swagger-ui .model-box-control button:hover {
+            background: rgba(56, 189, 248, 0.2) !important;
+            color: #ffffff !important;
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
+        }
+        
         .swagger-ui .model-toggle {
             fill: #38bdf8 !important;
+            background: transparent !important;
+            border: none !important;
+            margin-left: 8px !important;
+            padding: 0 !important;
         }
         .swagger-ui .prop-name {
             color: #38bdf8 !important;
