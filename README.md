@@ -1,36 +1,47 @@
-# 🚀 Shivani's Full-Stack Developer Assessment
+# Task 3: Authentication Flow
 
-Welcome to my 3-Month Full-Stack Developer Assessment repository. 
+## Overview
+This task implements a JWT-based authentication flow on top of the Task 2 REST API. It includes user registration, login, protected task endpoints, and a React frontend to manage authentication.
 
-According to the assessment guidelines, each task is built and maintained on its own separate branch to allow independent review. The `main` branch remains untouched.
+## Tech Stack
+**Backend**: FastAPI, SQLAlchemy, PostgreSQL/SQLite, PassLib (Bcrypt), Python-JOSE (JWT)
+**Frontend**: React (Vite), React Router, Lucide Icons, Vanilla CSS
 
----
+## Setup Instructions
 
-## 📂 Assessment Branches
+### Backend Setup
+1. Navigate to the `Task_3` folder.
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\activate   # Windows
+   source venv/bin/activate  # Mac/Linux
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the FastAPI server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+   The backend will run at `http://localhost:8000`.
 
-| Task | Topic | Branch Name | Status |
-| :--- | :--- | :--- | :--- |
-| **Task 1** | Reusable DataTable Component | `task-1-datatable` | 🕒 Planned |
-| **Task 2** | Tasks REST API (FastAPI) | `task-2-tasks-api` | 🕒 Planned |
-| **Task 3** | Authentication Flow (JWT) | `task-3-auth` | 🕒 Planned |
-| **Task 4** | URL Shortener | `task-4-url-shortener` | 🕒 Planned |
-| **Task 5** | Database Schema Design | `task-5-schema-design` | 🕒 Planned |
+### Frontend Setup
+1. Open a new terminal and navigate to `Task_3/auth-frontend`.
+2. Install Node dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   The frontend will run at `http://localhost:5173`.
 
----
-
-## 🛠️ Tech Stack Used
-
-- **Frontend**: React (Vite), Vanilla CSS, Google Fonts, Axios
-- **Backend**: Python, FastAPI, SQLAlchemy ORM, Pydantic, python-jose, passlib
-- **Database**: PostgreSQL
-- **DevOps**: Docker / Docker-Compose
-
----
-
-## 🎯 How to Review My Code
-
-Please checkout to the respective task branch to review the code and implementation notes. For example:
-```bash
-git checkout task-1-datatable
-```
-Each branch contains its own dedicated `README.md` (explaining how to run that specific task) and `NOTES.md` (documenting AI usage, prompts, and code decisions).
+## Features
+- **Secure Hashing**: Passwords are securely hashed using bcrypt.
+- **JWT Authorization**: All `/tasks` routes require a valid Bearer token.
+- **User Segregation**: Users can only fetch, create, and update their own tasks.
+- **Modern UI**: A premium React UI built with dark mode semantics and Lucide icons.
+- **Session Management**: Handled via `localStorage` on the frontend with automatic redirects upon token expiry (401 Unauthorized).
