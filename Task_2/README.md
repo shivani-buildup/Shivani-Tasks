@@ -58,3 +58,44 @@ Follow these simple steps to run the API locally on your machine:
 | **GET** | `/tasks/{id}` | Get Task by ID | None | None | `200 OK` |
 | **PATCH** | `/tasks/{id}`| Partial Update | `TaskUpdate` | None | `200 OK` |
 | **DELETE**| `/tasks/{id}`| Delete Task | None | None | `200 OK` |
+
+---
+
+## ⚡ curl Examples for Testing
+
+You can use these `curl` commands in your terminal to test the API directly:
+
+### 1. Root Welcome API
+```bash
+curl -X GET "http://127.0.0.1:8000/"
+```
+
+### 2. Create a Task (POST)
+```bash
+curl -X POST "http://127.0.0.1:8000/tasks" \
+     -H "Content-Type: application/json" \
+     -d "{\"title\": \"Complete Full-Stack Assessment\", \"description\": \"Finish Part A of the evaluation\", \"status\": \"in_progress\"}"
+```
+
+### 3. List All Tasks with Pagination & Filtering (GET)
+```bash
+curl -X GET "http://127.0.0.1:8000/tasks?status=in_progress&page=1&limit=10"
+```
+
+### 4. Get a Specific Task by ID (GET)
+```bash
+curl -X GET "http://127.0.0.1:8000/tasks/1"
+```
+
+### 5. Partial Update of a Task (PATCH)
+```bash
+curl -X PATCH "http://127.0.0.1:8000/tasks/1" \
+     -H "Content-Type: application/json" \
+     -d "{\"status\": \"done\"}"
+```
+
+### 6. Delete a Task (DELETE)
+```bash
+curl -X DELETE "http://127.0.0.1:8000/tasks/1"
+```
+

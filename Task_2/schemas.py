@@ -27,5 +27,3 @@ class TaskResponse(BaseModel):
     class Config:
         # Pydantic v2 configuration to allow working with ORM models
         from_attributes = True
-        # Pydantic v1 fallback compatibility
-        orm_mode = True
